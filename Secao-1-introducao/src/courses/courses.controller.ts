@@ -1,11 +1,11 @@
 /* eslint-disable prettier/prettier */
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Res } from '@nestjs/common';
 
 @Controller('courses')
 export class CoursesController {
     @Get()
-    findAll(){
-        return 'Listagem de curso';
+    findAll(@Res() response){
+        return response.status(200).json({messagem: 'Listagem'});
     }
 
     @Get(':id')
